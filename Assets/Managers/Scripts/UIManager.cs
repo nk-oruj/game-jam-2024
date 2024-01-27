@@ -7,6 +7,7 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private CinemachineVirtualCamera _virtualCamera;
     [SerializeField] private GameObject _menuCanvas;
     [SerializeField] private GameObject _gameCanvas;
+    [SerializeField] private GameObject _buttonParrot;
 
     [SerializeField] private float _menuLensSize = 8f;
     [SerializeField] private float _gameLensSize = 5f;
@@ -15,9 +16,6 @@ public class UIManager : Singleton<UIManager>
     protected override void Awake()
     {
         base.Awake();
-
-        _menuCanvas.SetActive(true);
-        _gameCanvas.SetActive(false);
 
         _virtualCamera.m_Lens.OrthographicSize = _menuLensSize;
     }
@@ -45,6 +43,11 @@ public class UIManager : Singleton<UIManager>
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void EnableButtonParrot()
+    {
+        _buttonParrot.SetActive(true);
     }
 
     public void SwitchCharacter(CharacterType type)
