@@ -11,7 +11,7 @@ public class CharacterSwitchManager : Singleton<CharacterSwitchManager>
     {
         _cameraController = CameraController.Instance;
 
-        SwitchCharacter(CharacterType.Parrot);
+        SwitchCharacter(CharacterType.Mike);
     }
 
     public void SwitchCharacter(CharacterType type)
@@ -21,6 +21,7 @@ public class CharacterSwitchManager : Singleton<CharacterSwitchManager>
             if (_currentCharacter != null)
             {
                 _currentCharacter.UnsubsribeFromControl();
+                AudioManager.Instance.SwitchCharacter(type);
             }
             _currentCharacter = _characters[type];
             _currentCharacter.SubscribeToControl();

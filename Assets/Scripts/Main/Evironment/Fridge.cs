@@ -14,6 +14,15 @@ public class Fridge : InteractableObject
         {
             Debug.Log("Idi naxuy");
         }
+        else
+        {
+            Open();
+        }
+    }
+
+    private void Open()
+    {
+
     }
 
 }
