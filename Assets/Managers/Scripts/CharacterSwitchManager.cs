@@ -1,25 +1,32 @@
 using System.Collections.Generic;
-using UnityEngine;
 
 public class CharacterSwitchManager : Singleton<CharacterSwitchManager>
 {
     private Dictionary<CharacterType, AbstractCharacter> _characters = new Dictionary<CharacterType, AbstractCharacter>();
     private AbstractCharacter _currentCharacter;
+    private CameraController _cameraController;
 
     
     private void Start()
     {
-        _currentCharacter = _characters[CharacterType.Parrot];
-        _currentCharacter.SubscribeToControl();
+        _cameraController = CameraController.Instance;
+
+        SwitchCharacter(CharacterType.Parrot);
     }
 
     public void SwitchCharacter(CharacterType type)
     {
-        if (type == _currentCharacter.type) return;
-        
-        _currentCharacter.UnsubsribeFromControl();
-        _currentCharacter = _characters[type];
-        _currentCharacter.SubscribeToControl();
+        if (_currentCharacter==null || type != _currentCharacter.type)
+        {
+            if (_currentCharacter != null)
+            {
+                _currentCharacter.UnsubsribeFromControl();
+            }
+            _currentCharacter = _characters[type];
+            _currentCharacter.SubscribeToControl();
+
+            _cameraController.SetTarget(_currentCharacter.transform);
+        }
     }
 
     public void AddCharacter(CharacterType type, AbstractCharacter character)

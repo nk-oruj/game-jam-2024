@@ -1,6 +1,4 @@
-using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class AbstractCharacter : MonoBehaviour
 {
@@ -10,15 +8,15 @@ public class AbstractCharacter : MonoBehaviour
     private MovementController _movementController;
     private CharacterView _view;
 
-    private void Awake()
-    {
-        CharacterSwitchManager.Instance.AddCharacter(type, this);
-    }
-
-    private void Start()
+    protected virtual void Awake()
     {
         _controlManager = ControlManager.Instance;
 
+        CharacterSwitchManager.Instance.AddCharacter(type, this);
+    }
+
+    protected virtual void Start()
+    {
         _movementController = GetComponent<MovementController>();
         _view = GetComponentInChildren<CharacterView>();
     }
