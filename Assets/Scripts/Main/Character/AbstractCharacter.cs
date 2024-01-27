@@ -25,16 +25,23 @@ public class AbstractCharacter : MonoBehaviour
 
     }
 
+    protected virtual void StopInteract()
+    {
+
+    }
+
 
     public void SubscribeToControl()
     {
         _controlManager.MoveEvent += Move;
         _controlManager.InteractEvent += Interact;
+        _controlManager.StopInteractEvent += StopInteract;
     }
 
     public void UnsubsribeFromControl()
     {
         _controlManager.MoveEvent -= Move;
         _controlManager.InteractEvent -= Interact;
+        _controlManager.StopInteractEvent -= StopInteract;
     }
 }

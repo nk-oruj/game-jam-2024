@@ -5,6 +5,7 @@ public class ControlManager : Singleton<ControlManager>
 {
     public event Action<Vector2> MoveEvent;
     public event Action InteractEvent;
+    public event Action StopInteractEvent;
 
     [SerializeField] private string _horizontalAxisName;
     [SerializeField] private string _verticalAxisName;
@@ -24,6 +25,10 @@ public class ControlManager : Singleton<ControlManager>
         if (Input.GetKeyDown(_interactKey)){
             OnInteract();
         }
+        if (Input.GetKeyUp(_interactKey))
+        {
+
+        }
     }
 
     private void OnMove(Vector2 direction)
@@ -34,5 +39,10 @@ public class ControlManager : Singleton<ControlManager>
     private void OnInteract()
     {
         InteractEvent?.Invoke();
+    }
+
+    private void OnStopInteract()
+    {
+        StopInteractEvent?.Invoke();
     }
 }
