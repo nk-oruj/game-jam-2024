@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5224057483717339929}
   - component: {fileID: 5224057483717339931}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 5224057483830009158}
   - component: {fileID: 5224057483830009154}
   - component: {fileID: 3340069490256897572}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Penguin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,6 +109,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 2
+  _isFlying: 0
+  _airFriction: 0
 --- !u!50 &5224057483830009154
 Rigidbody2D:
   serializedVersion: 4
@@ -156,7 +158,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7455461460185571570}
   - component: {fileID: 912982275397019486}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,7 +222,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.0141509175, g: 0.17766473, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
