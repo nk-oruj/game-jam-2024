@@ -10,6 +10,7 @@ public class UIManager : Singleton<UIManager>
 
     [SerializeField] private float _menuLensSize = 8f;
     [SerializeField] private float _gameLensSize = 5f;
+    [SerializeField] private float _transitionDuration = 1.6f;
 
     protected override void Awake()
     {
@@ -38,7 +39,7 @@ public class UIManager : Singleton<UIManager>
         _menuCanvas.SetActive(false);
         _gameCanvas.SetActive(true);
 
-        StartCoroutine(ZoomIn(.8f));
+        StartCoroutine(ZoomIn(_transitionDuration));
     }
 
     public void QuitGame()
