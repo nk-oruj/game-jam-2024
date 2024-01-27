@@ -1,15 +1,22 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class ControlManager : Singleton<ControlManager>
 {
     public event Action<Vector2> MoveEvent;
+    public event Action<Vector2> HitEvent;
     public event Action InteractEvent;
     public event Action StopInteractEvent;
+    public event Action AbilityEvent;
 
     [SerializeField] private string _horizontalAxisName;
     [SerializeField] private string _verticalAxisName;
+    
     [SerializeField] private KeyCode _interactKey;
+    [SerializeField] private KeyCode _abilityKey;
+    
+    [FormerlySerializedAs("_shootKey")] [SerializeField] private KeyCode _hitKey;
 
     private void Update()
     {
@@ -29,6 +36,11 @@ public class ControlManager : Singleton<ControlManager>
         {
 
         }
+
+        if (Input.GetKeyDown(_hitKey))
+        {
+            OnHitEvent(Input.mousePosition);
+        }
     }
 
     private void OnMove(Vector2 direction)
@@ -36,6 +48,11 @@ public class ControlManager : Singleton<ControlManager>
         MoveEvent?.Invoke(direction);
     }
 
+    private void OnHitEvent(Vector2 mousePosition)
+    {
+        HitEvent?.Invoke(mousePosition);
+    }
+    
     private void OnInteract()
     {
         InteractEvent?.Invoke();
@@ -44,5 +61,10 @@ public class ControlManager : Singleton<ControlManager>
     private void OnStopInteract()
     {
         StopInteractEvent?.Invoke();
+    }
+
+    private void OnAbilityUse()
+    {
+        AbilityEvent?.Invoke();
     }
 }
