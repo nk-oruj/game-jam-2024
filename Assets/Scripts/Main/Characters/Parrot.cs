@@ -9,11 +9,23 @@ public class Parrot : AbstractCharacter
     {
         block.parent = transform;
         _blocks.Add(block);
+
+        if (block.GetComponent<Rigidbody2D>())
+        {
+            block.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+        }
     }
 
     private void DetachBlocks()
     {
-        _blocks.ForEach(block => block.parent = null);
+        _blocks.ForEach(block =>
+        {
+            block.parent = null;
+            if (block.GetComponent<Rigidbody2D>())
+            {
+                block.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+            }
+        });
         _blocks.Clear();
     }
     protected override void StopAbility()
@@ -21,13 +33,18 @@ public class Parrot : AbstractCharacter
         base.StopAbility();
         DetachBlocks();
     }
-    private void OnCollisionStay2D(Collision2D other)
+
+    protected override void OnTriggerStay2D(Collider2D other)
     {
+        base.OnTriggerStay2D(other);
+
+
+
         if (other.transform.CompareTag("MoveableBlock"))
         {
             if (_isAbilityPressed)
             {
-                AttachBlock(other.transform);
+                AttachBlock(other.transform.parent);
             }
         }
     }
