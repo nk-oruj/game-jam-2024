@@ -6,9 +6,8 @@ public class Penguin : AbstractCharacter
 
     private float _defaultFriction;
 
-    protected override void Start()
+    private void Start()
     {
-        base.Start();
         _defaultFriction = _physicMaterial.friction;
     }
 
