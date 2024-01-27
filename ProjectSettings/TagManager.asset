@@ -6,14 +6,15 @@ TagManager:
   tags:
   - MoveableBlock
   - InteractableObject
+  - SubZero
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - NotCollideableWithCharacter
   - Water
   - UI
-  - 
+  - Character
   - 
   - 
   - 
