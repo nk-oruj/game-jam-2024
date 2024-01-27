@@ -1,10 +1,19 @@
+using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class AbstractCharacter : MonoBehaviour
 {
+    [FormerlySerializedAs("Type")] public CharacterType type;
+    
     private ControlManager _controlManager;
     private MovementController _movementController;
     private CharacterView _view;
+
+    private void Awake()
+    {
+        CharacterSwitchManager.Instance.AddCharacter(type, this);
+    }
 
     private void Start()
     {
