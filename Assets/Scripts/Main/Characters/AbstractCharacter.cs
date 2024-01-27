@@ -9,6 +9,7 @@ public class AbstractCharacter : MonoBehaviour
     private CharacterView _view;
 
     protected bool _isAbilityPressed = false;
+    protected bool _isInteractionPressed = false;
     protected Vector2 _currentDirection;
 
     protected virtual void Awake()
@@ -33,12 +34,12 @@ public class AbstractCharacter : MonoBehaviour
 
     protected virtual void Interact()
     {
-
+        _isInteractionPressed = true;
     }
 
     protected virtual void StopInteract()
     {
-
+        _isInteractionPressed = false;
     }
 
     protected virtual void UseAbility()
@@ -55,6 +56,15 @@ public class AbstractCharacter : MonoBehaviour
     {
         
     }
+
+    protected virtual void OnCollisionStay2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("InteractableObject") && _isInteractionPressed)
+        {
+            other.gameObject.GetComponent<InteractableObject>().Interact(type);
+        }
+    }
+
 
     public void SubscribeToControl()
     {
