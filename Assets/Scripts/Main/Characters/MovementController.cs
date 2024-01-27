@@ -5,6 +5,7 @@ public class MovementController : MonoBehaviour
     [SerializeField] private float _speed;
 
     private Rigidbody2D _rigidbody;
+    private Vector2 _externalVelocity;
 
     private void Start()
     {
@@ -13,8 +14,19 @@ public class MovementController : MonoBehaviour
 
     public void Walk(float direction)
     {
-        if (direction != 0) {
-            _rigidbody.velocity = new Vector2(direction * _speed, _rigidbody.velocity.y);
+        if (direction == 0)
+        {
+            _externalVelocity = Vector2.zero;
         }
+        else
+        {
+            _externalVelocity = new Vector2(direction * _speed, 0);
+            if (Mathf.Sign(_rigidbody.velocity.x / direction) >= 0 && Mathf.Abs(_rigidbody.velocity.x) > Mathf.Abs(_externalVelocity.x))
+            {
+                _externalVelocity = Vector2.zero;
+            }
+        }
+
+        _rigidbody.velocity += _externalVelocity;
     }
 }
