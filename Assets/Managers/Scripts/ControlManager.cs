@@ -27,7 +27,7 @@ public class ControlManager : Singleton<ControlManager>
         }
         if (Input.GetKeyUp(_interactKey))
         {
-
+            OnStopInteract();
         }
     }
 

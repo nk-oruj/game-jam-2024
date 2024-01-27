@@ -5,8 +5,9 @@ public class CameraController : Singleton<CameraController>
 {
     private CinemachineVirtualCamera _virtualCamera;
 
-    private void Start()
+    protected override void Awake()
     {
+        base.Awake();
         _virtualCamera = GetComponentInChildren<CinemachineVirtualCamera>();
     }
 
