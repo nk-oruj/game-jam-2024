@@ -6,7 +6,7 @@ public class AbstractCharacter : MonoBehaviour
     
     private ControlManager _controlManager;
     private MovementController _movementController;
-    private CharacterView _view;
+    protected CharacterView _view;
 
     protected bool _isAbilityPressed = false;
     protected bool _isInteractionPressed = false;

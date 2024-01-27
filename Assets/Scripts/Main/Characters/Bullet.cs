@@ -28,11 +28,4 @@ public class Bullet : MonoBehaviour
     {
         _hittedObject = true;
     }
-
-    private void OnCollisionExit2D(Collision2D other)
-    {
-        _hittedObject = false;
-    }
-
-
 }

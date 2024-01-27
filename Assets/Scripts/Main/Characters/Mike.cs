@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class Mike : AbstractCharacter
 {
@@ -10,6 +9,26 @@ public class Mike : AbstractCharacter
     [SerializeField] private GameObject _projectile;
     [SerializeField] private GameObject _subZeroInGun;
     [SerializeField] private Transform _projectileSpawningPosition;
+
+    protected override void Move(Vector2 direction)
+    {
+        base.Move(direction);
+        if (direction.x != 0)
+        {
+            if (_isAbilityPressed)
+            {
+                _view.Push();
+            }
+            else
+            {
+                _view.Run();
+            }
+        }
+        else
+        {
+            _view.Idle();
+        }
+    }
 
     public void AllowHitting()
     {
