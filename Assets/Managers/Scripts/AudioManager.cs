@@ -16,4 +16,10 @@ public class AudioManager : Singleton<AudioManager>
         _audioSource.clip = _characterSwitchingAudio[(int)type];
         _audioSource.Play();
     }
+
+    public void PlayAudio(AudioClip clip)
+    {
+        _audioSource.clip = clip;
+        _audioSource.Play();
+    }
 }

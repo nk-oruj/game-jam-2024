@@ -7,6 +7,7 @@ TagManager:
   - MoveableBlock
   - InteractableObject
   - SubZero
+  - Banana
   layers:
   - Default
   - TransparentFX
