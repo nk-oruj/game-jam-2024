@@ -50,6 +50,10 @@ public class AbstractCharacter : MonoBehaviour
 
     }
 
+    protected virtual void Hit(Vector2 mousePosition)
+    {
+        
+    }
 
     public void SubscribeToControl()
     {
@@ -58,6 +62,7 @@ public class AbstractCharacter : MonoBehaviour
         _controlManager.StopInteractEvent += StopInteract;
         _controlManager.AbilityEvent += UseAbility;
         _controlManager.AbilityStopEvent += StopAbility;
+        _controlManager.HitEvent += Hit;
     }
 
     public void UnsubsribeFromControl()
@@ -67,5 +72,7 @@ public class AbstractCharacter : MonoBehaviour
         _controlManager.StopInteractEvent -= StopInteract;
         _controlManager.AbilityEvent -= UseAbility;
         _controlManager.AbilityStopEvent -= StopAbility;
+        _controlManager.HitEvent -= Hit;
+
     }
 }
