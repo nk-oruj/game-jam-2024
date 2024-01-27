@@ -6,8 +6,10 @@ public class Mike : AbstractCharacter
 {
     private List<Transform> _blocks = new List<Transform>();
     private bool _isHittingAllowed = false;
+
     [SerializeField] private GameObject _projectile;
     [SerializeField] private GameObject _subZeroInGun;
+    [SerializeField] private Transform _projectileSpawningPosition;
 
     public void AllowHitting()
     {
@@ -32,7 +34,7 @@ public class Mike : AbstractCharacter
         _blocks.Clear();
     }
 
-   
+
 
     protected override void Hit(Vector2 mousePosition)
     {
@@ -40,13 +42,13 @@ public class Mike : AbstractCharacter
         Vector3 position = new Vector3(transform.position.x, transform.position.y);
         Vector2 throwingDirection = Camera.main.ScreenToWorldPoint(mousePosition) - position;
 
-        GameObject projectile = Instantiate(_projectile, transform.position, transform.rotation);
+        GameObject projectile = Instantiate(_projectile, _projectileSpawningPosition.position, transform.rotation);
         projectile.GetComponent<Bullet>().SetFlyingDirection(throwingDirection);
         _isHittingAllowed = false;
         _subZeroInGun.SetActive(false);
 
     }
-    
+
     protected override void OnCollisionStay2D(Collision2D other)
     {
         base.OnCollisionStay2D(other);

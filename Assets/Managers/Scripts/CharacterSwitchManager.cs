@@ -6,17 +6,15 @@ public class CharacterSwitchManager : Singleton<CharacterSwitchManager>
     private AbstractCharacter _currentCharacter;
     private CameraController _cameraController;
 
-    
+
     private void Start()
     {
         _cameraController = CameraController.Instance;
-
-        SwitchCharacter(CharacterType.Mike);
     }
 
     public void SwitchCharacter(CharacterType type)
     {
-        if (_currentCharacter==null || type != _currentCharacter.type)
+        if (_currentCharacter == null || type != _currentCharacter.type)
         {
             if (_currentCharacter != null)
             {

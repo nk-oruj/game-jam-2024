@@ -6,7 +6,7 @@ public class SubZero : InteractableObject
     {
         base.Interact(type);
         AllowMikeHitting();
-        Destroy(gameObject);
+        Destroy(transform.parent.gameObject);
     }
 
     private void AllowMikeHitting()

@@ -16,7 +16,8 @@ public class Cage : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (_isBroken) return;
-        if (other.gameObject.tag != "SubZero") return;
+        if (other.gameObject.tag != "InteractableObject") return;
+        if (other.GetComponent<Bullet>() == null) return;
 
         UIManager.Instance.EnableButtonParrot();
         _transform.Rotate(new Vector3(0, 0, 45f));
