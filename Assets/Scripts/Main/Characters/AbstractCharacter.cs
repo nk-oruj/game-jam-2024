@@ -40,12 +40,24 @@ public class AbstractCharacter : MonoBehaviour
 
     }
 
+    protected virtual void UseAbility()
+    {
+
+    }
+
+    protected virtual void StopAbility()
+    {
+
+    }
+
 
     public void SubscribeToControl()
     {
         _controlManager.MoveEvent += Move;
         _controlManager.InteractEvent += Interact;
         _controlManager.StopInteractEvent += StopInteract;
+        _controlManager.AbilityEvent += UseAbility;
+        _controlManager.AbilityStopEvent += StopAbility;
     }
 
     public void UnsubsribeFromControl()
@@ -53,5 +65,7 @@ public class AbstractCharacter : MonoBehaviour
         _controlManager.MoveEvent -= Move;
         _controlManager.InteractEvent -= Interact;
         _controlManager.StopInteractEvent -= StopInteract;
+        _controlManager.AbilityEvent -= UseAbility;
+        _controlManager.AbilityStopEvent -= StopAbility;
     }
 }

@@ -46,4 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _horizontalAxisName: Horizontal
   _verticalAxisName: Vertical
-  _interactKey: 32
+  _interactKey: 101
+  _abilityKey: 32
+  _hitKey: 323

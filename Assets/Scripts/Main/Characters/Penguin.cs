@@ -22,12 +22,12 @@ public class Penguin : AbstractCharacter
         }
     }
 
-    protected override void Interact()
+    protected override void UseAbility()
     {
         Slide();
     }
 
-    protected override void StopInteract()
+    protected override void StopAbility()
     {
         StopSlide();
     }
