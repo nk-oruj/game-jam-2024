@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  _projectile: {fileID: 2105481516175952217, guid: 18ce45c4698be488abf712cbdb6b6e8b, type: 3}
 --- !u!114 &6706147206923449763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,6 +63,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 2
+  _isFlying: 0
+  _airFriction: 0
 --- !u!50 &6706147206923449767
 Rigidbody2D:
   serializedVersion: 4
