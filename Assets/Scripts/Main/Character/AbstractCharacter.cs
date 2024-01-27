@@ -6,7 +6,7 @@ public class AbstractCharacter : MonoBehaviour
     private MovementController _movementController;
     private CharacterView _view;
 
-    private void Start()
+    private void Awake()
     {
         _controlManager = ControlManager.Instance;
 
