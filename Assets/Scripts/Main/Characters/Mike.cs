@@ -51,5 +51,6 @@ public class Mike : AbstractCharacter
 
         GameObject projectile = Instantiate(_projectile, transform.position, transform.rotation);
         projectile.GetComponent<Bullet>().SetFlyingDirection(throwingDirection);
+        
     }
 }
