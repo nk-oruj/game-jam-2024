@@ -4,23 +4,19 @@ using UnityEngine;
 public class Mike : AbstractCharacter
 {
     private List<Transform> _blocks = new List<Transform>();
+    [SerializeField] private GameObject _projectile;
+    
+
+
     protected override void Move(Vector2 direction)
     {
         base.Move(direction);
-
-        CheckDirection(direction);
     }
 
-    private void CheckDirection(Vector2 direction)
+    protected override void StopAbility()
     {
-        if (_blocks.Count > 0 && !CheckBlockDirection(_blocks[0])) {
-            DetachBlocks();
-        }
-    }
-
-    private bool CheckBlockDirection(Transform block)
-    {
-        return Mathf.Sign(_currentDirection.x) == Mathf.Sign(block.localPosition.x);
+        base.StopAbility();
+        DetachBlocks();
     }
 
     private void AttachBlock(Transform block)
@@ -34,15 +30,27 @@ public class Mike : AbstractCharacter
         _blocks.ForEach(block => block.parent = null);
         _blocks.Clear();
     }
-    
-    private void OnCollisionStay2D(Collision2D other)
+
+    protected override void OnCollisionStay2D(Collision2D other)
     {
+        base.OnCollisionStay2D(other);
+
         if (other.transform.CompareTag("MoveableBlock"))
         {
-            if (CheckBlockDirection(other.transform))
+            if (_isAbilityPressed)
             {
                 AttachBlock(other.transform);
             }
         }
+    }
+
+    protected override void Hit(Vector2 mousePosition)
+    {
+        Vector3 position = new Vector3(transform.position.x, transform.position.y);
+        Vector2 throwingDirection = Camera.main.ScreenToWorldPoint(mousePosition) - position;
+
+        GameObject projectile = Instantiate(_projectile, transform.position, transform.rotation);
+        projectile.GetComponent<Bullet>().SetFlyingDirection(throwingDirection);
+        
     }
 }

@@ -9,6 +9,7 @@ public class ControlManager : Singleton<ControlManager>
     public event Action InteractEvent;
     public event Action StopInteractEvent;
     public event Action AbilityEvent;
+    public event Action AbilityStopEvent;
 
     [SerializeField] private string _horizontalAxisName;
     [SerializeField] private string _verticalAxisName;
@@ -23,10 +24,16 @@ public class ControlManager : Singleton<ControlManager>
         float horizontalInput = Input.GetAxis(_horizontalAxisName);
         float verticalInput = Input.GetAxis(_verticalAxisName);
 
-        if (horizontalInput != 0 || verticalInput != 0)
+        Vector2 direction = new Vector2(horizontalInput, verticalInput);
+        OnMove(direction);
+
+        if (Input.GetKeyDown(_abilityKey))
         {
-            Vector2 direction = new Vector2(horizontalInput, verticalInput);
-            OnMove(direction);
+            OnAbilityUse();
+        }
+        if (Input.GetKeyUp(_abilityKey))
+        {
+            OnAbilityStop();
         }
 
         if (Input.GetKeyDown(_interactKey)){
@@ -66,5 +73,10 @@ public class ControlManager : Singleton<ControlManager>
     private void OnAbilityUse()
     {
         AbilityEvent?.Invoke();
+    }
+
+    private void OnAbilityStop()
+    {
+        AbilityStopEvent?.Invoke();
     }
 }

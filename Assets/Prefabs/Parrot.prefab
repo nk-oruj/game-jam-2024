@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 5473284870832107571}
   - component: {fileID: 5473284870832107529}
   m_Layer: 0
-  m_Name: Perrot
+  m_Name: Parrot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -133,6 +133,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 2
+  _isFlying: 1
+  _airFriction: 1
 --- !u!114 &5473284870832107530
 MonoBehaviour:
   m_ObjectHideFlags: 0
