@@ -65,6 +65,14 @@ public class AbstractCharacter : MonoBehaviour
         }
     }
 
+    protected virtual void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("InteractableObject") && _isInteractionPressed)
+        {
+            other.gameObject.GetComponent<InteractableObject>().Interact(type);
+        }
+    }
+
 
     public void SubscribeToControl()
     {
