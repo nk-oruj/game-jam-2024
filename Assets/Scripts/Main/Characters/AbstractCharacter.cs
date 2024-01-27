@@ -8,6 +8,7 @@ public class AbstractCharacter : MonoBehaviour
     private MovementController _movementController;
     private CharacterView _view;
 
+    protected bool _isAbilityPressed = false;
     protected Vector2 _currentDirection;
 
     protected virtual void Awake()
@@ -42,12 +43,12 @@ public class AbstractCharacter : MonoBehaviour
 
     protected virtual void UseAbility()
     {
-
+        _isAbilityPressed = true;
     }
 
     protected virtual void StopAbility()
     {
-
+        _isAbilityPressed = false;
     }
 
     protected virtual void Hit(Vector2 mousePosition)

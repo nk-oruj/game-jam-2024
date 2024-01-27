@@ -4,23 +4,11 @@ using UnityEngine;
 public class Mike : AbstractCharacter
 {
     private List<Transform> _blocks = new List<Transform>();
-    protected override void Move(Vector2 direction)
-    {
-        base.Move(direction);
 
-        CheckDirection(direction);
-    }
-
-    private void CheckDirection(Vector2 direction)
+    protected override void StopAbility()
     {
-        if (_blocks.Count > 0 && !CheckBlockDirection(_blocks[0])) {
-            DetachBlocks();
-        }
-    }
-
-    private bool CheckBlockDirection(Transform block)
-    {
-        return Mathf.Sign(_currentDirection.x) == Mathf.Sign(block.localPosition.x);
+        base.StopAbility();
+        DetachBlocks();
     }
 
     private void AttachBlock(Transform block)
@@ -39,7 +27,7 @@ public class Mike : AbstractCharacter
     {
         if (other.transform.CompareTag("MoveableBlock"))
         {
-            if (CheckBlockDirection(other.transform))
+            if (_isAbilityPressed)
             {
                 AttachBlock(other.transform);
             }
