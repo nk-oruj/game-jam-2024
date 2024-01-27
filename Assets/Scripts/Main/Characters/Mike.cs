@@ -30,9 +30,11 @@ public class Mike : AbstractCharacter
         _blocks.ForEach(block => block.parent = null);
         _blocks.Clear();
     }
-    
-    private void OnCollisionStay2D(Collision2D other)
+
+    protected override void OnCollisionStay2D(Collision2D other)
     {
+        base.OnCollisionStay2D(other);
+
         if (other.transform.CompareTag("MoveableBlock"))
         {
             if (_isAbilityPressed)
