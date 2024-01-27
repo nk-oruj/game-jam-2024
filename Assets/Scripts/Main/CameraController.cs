@@ -14,6 +14,5 @@ public class CameraController : Singleton<CameraController>
     public void SetTarget(Transform target)
     {
         _virtualCamera.Follow = target;
-        _virtualCamera.LookAt = target;
     }
 }
