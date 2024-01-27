@@ -8,7 +8,18 @@ public class AbstractCharacter : MonoBehaviour
     private MovementController _movementController;
     private CharacterView _view;
 
+<<<<<<< HEAD:Assets/Scripts/Main/Character/AbstractCharacter.cs
+    protected Vector2 _currentDirection;
+
+    private void Awake()
+    {
+        CharacterSwitchManager.Instance.AddCharacter(type, this);
+    }
+
+    private void Start()
+=======
     protected virtual void Awake()
+>>>>>>> 151ab162d0931a979cfb3c80ea6dedbd5347ead1:Assets/Scripts/Main/Characters/AbstractCharacter.cs
     {
         _controlManager = ControlManager.Instance;
 
@@ -25,6 +36,7 @@ public class AbstractCharacter : MonoBehaviour
     {
         _movementController.Walk(direction.x);
         _view.Flip(direction.x);
+        _currentDirection = direction;
     }
 
     protected virtual void Interact()
