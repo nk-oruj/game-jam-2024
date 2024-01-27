@@ -3,6 +3,8 @@ using UnityEngine;
 public class MovementController : MonoBehaviour
 {
     [SerializeField] private float _speed;
+    [SerializeField] private bool _isFlying;
+    [SerializeField] private float _airFriction;
 
     private Rigidbody2D _rigidbody;
     private Vector2 _externalVelocity;
@@ -17,6 +19,10 @@ public class MovementController : MonoBehaviour
         if (direction == 0)
         {
             _externalVelocity = Vector2.zero;
+            if (_isFlying)
+            {
+                _rigidbody.velocity -= Vector2.right * _rigidbody.velocity.x;
+            }
         }
         else
         {

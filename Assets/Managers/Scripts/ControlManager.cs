@@ -24,11 +24,8 @@ public class ControlManager : Singleton<ControlManager>
         float horizontalInput = Input.GetAxis(_horizontalAxisName);
         float verticalInput = Input.GetAxis(_verticalAxisName);
 
-        if (horizontalInput != 0 || verticalInput != 0)
-        {
-            Vector2 direction = new Vector2(horizontalInput, verticalInput);
-            OnMove(direction);
-        }
+        Vector2 direction = new Vector2(horizontalInput, verticalInput);
+        OnMove(direction);
 
         if (Input.GetKeyDown(_abilityKey))
         {
