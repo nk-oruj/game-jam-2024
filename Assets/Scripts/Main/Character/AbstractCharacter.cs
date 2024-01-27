@@ -4,7 +4,7 @@ using UnityEngine.Serialization;
 
 public class AbstractCharacter : MonoBehaviour
 {
-    [FormerlySerializedAs("Type")] public CharacterType type;
+    public CharacterType type;
     
     private ControlManager _controlManager;
     private MovementController _movementController;
