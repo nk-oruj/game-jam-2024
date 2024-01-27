@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class Banana : MonoBehaviour
 {
+    private Animator _animator;
+
+    private void Start()
+    {
+        _animator = GetComponent<Animator>();
+    }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag != "Ground") return;
 
-        // change sprite
+
         gameObject.tag = "Banana";
         Destroy(GetComponent<Rigidbody2D>());
         GetComponent<BoxCollider2D>().isTrigger = true;
-        GetComponent<Animator>().SetTrigger("Ground");
+        _animator.SetTrigger("Fall");
     }
 }
