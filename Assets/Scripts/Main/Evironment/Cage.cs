@@ -19,9 +19,10 @@ public class Cage : MonoBehaviour
         if (other.gameObject.tag != "InteractableObject") return;
         if (other.GetComponent<Bullet>() == null) return;
 
+        Destroy(other.gameObject);
+
         UIManager.Instance.EnableButtonParrot();
         _transform.Rotate(new Vector3(0, 0, 45f));
-
         _isBroken = true;
     }
 }

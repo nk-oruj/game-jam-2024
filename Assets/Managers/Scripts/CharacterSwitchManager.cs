@@ -25,6 +25,12 @@ public class CharacterSwitchManager : Singleton<CharacterSwitchManager>
             _currentCharacter.SubscribeToControl();
 
             _cameraController.SetTarget(_currentCharacter.transform);
+
+
+            if(type == CharacterType.Parrot)
+            {
+                GameManager.Instance.OnParrotSwitch();
+            }
         }
     }
 

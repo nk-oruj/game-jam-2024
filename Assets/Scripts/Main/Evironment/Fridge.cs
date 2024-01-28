@@ -4,6 +4,8 @@ public class Fridge : InteractableObject
 {
     [SerializeField] private Sprite _openedSprite;
     [SerializeField] private AudioClip _openAudio;
+    [SerializeField] private GameObject _penguin;
+    [SerializeField] private GameObject _slider;
 
     private SpriteRenderer _renderer;
     private bool _isOpened;
@@ -39,6 +41,10 @@ public class Fridge : InteractableObject
         _isOpened = true;
         _renderer.sprite = _openedSprite;
         AudioManager.Instance.PlayAudio(_openAudio);
+
+        _slider.SetActive(true);
+        _penguin.SetActive(true);
+        UIManager.Instance.EnableButtonPinguin();
     }
 
 }
