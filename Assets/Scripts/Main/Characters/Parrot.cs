@@ -36,9 +36,6 @@ public class Parrot : AbstractCharacter
 
     protected override void OnCollisionStay2D(Collision2D other)
     {
-
-
-
         if (other.transform.CompareTag("MoveableBlock"))
         {
             if (_isAbilityPressed)

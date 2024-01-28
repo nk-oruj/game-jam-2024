@@ -9,6 +9,8 @@ public class Shelf : MonoBehaviour
         if (collision.gameObject.CompareTag("ShelfTrigger"))
         {
             gameObject.layer = 0;
+            collision.transform.parent.tag = "MoveableBlock";
+            collision.transform.parent.gameObject.layer = 0;
         }
     }
 }

@@ -64,7 +64,7 @@ public class AbstractCharacter : MonoBehaviour
     {
         if (other.gameObject.CompareTag("InteractableObject") && _isInteractionPressed)
         {
-            other.gameObject.GetComponent<InteractableObject>().Interact(type);
+            other.gameObject.GetComponent<InteractableObject>().Interact(type, gameObject);
         }
     }
 
@@ -72,7 +72,7 @@ public class AbstractCharacter : MonoBehaviour
     {
         if (other.gameObject.CompareTag("InteractableObject") && _isInteractionPressed)
         {
-            other.gameObject.GetComponent<InteractableObject>().Interact(type);
+            other.gameObject.GetComponent<InteractableObject>().Interact(type, gameObject);
         }
     }
 

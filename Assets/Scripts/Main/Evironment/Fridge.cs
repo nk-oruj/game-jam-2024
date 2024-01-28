@@ -18,7 +18,7 @@ public class Fridge : InteractableObject
         _audioSource = GetComponent<AudioSource>();
     }
 
-    public override void Interact(CharacterType type)
+    public override void Interact(CharacterType type, GameObject interactObject = null)
     {
         base.Interact(type);
         TryToOpen(type);
