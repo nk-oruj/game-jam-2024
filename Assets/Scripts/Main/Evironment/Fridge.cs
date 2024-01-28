@@ -53,6 +53,7 @@ public class Fridge : InteractableObject
     {
         yield return new WaitForSeconds(delay);
         _renderer.sprite = _openedSprite;
+        _renderer.sortingOrder = -2;
         _slider.SetActive(true);
         _penguin.SetActive(true);
         UIManager.Instance.EnableButtonPinguin();
