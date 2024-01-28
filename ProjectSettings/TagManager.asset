@@ -12,6 +12,7 @@ TagManager:
   - Laser
   - Trumpoline
   - ShelfTrigger
+  - Luster
   layers:
   - Default
   - TransparentFX
