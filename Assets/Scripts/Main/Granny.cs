@@ -20,7 +20,6 @@ public class Granny : AbstractCharacter
     private bool _isFalling = false;
     private bool _isStanding = false;
     private bool _isLusterHit = false;
-    private bool _isPenguinHit = false;
     private int _heartPoints = 3;
 
 
@@ -40,6 +39,7 @@ public class Granny : AbstractCharacter
         if (_state == BehaviorState.Walk)
         {
             Move(_direction);
+            _view.Run();
         }
     }
 
@@ -64,6 +64,7 @@ public class Granny : AbstractCharacter
     {
         _state = BehaviorState.Idle;
         TakeDamage();
+        _view.Idle();
     }
 
     private void Banana()
@@ -71,6 +72,7 @@ public class Granny : AbstractCharacter
         if (!_isFallen)
         {
             _state = BehaviorState.Idle;
+            _view.Idle();
             _isFalling = true;
         }
     }
@@ -118,9 +120,8 @@ public class Granny : AbstractCharacter
                 collision.gameObject.GetComponent<Fridge>().Interact(type);
             }
         }
-        else if (collision.gameObject.CompareTag("PenguinHit") && !_isPenguinHit)
+        else if (collision.gameObject.CompareTag("PenguinHit"))
         {
-            _isPenguinHit = true;
             TakeDamage();
         }
     }
@@ -144,6 +145,9 @@ public class Granny : AbstractCharacter
         if(_heartPoints <= 0)
         {
             GameManager.Instance.Win();
+            _state = BehaviorState.Idle;
+            _view.Idle();
+            _isFalling = true;
         }
     }
 }

@@ -122,7 +122,7 @@ public class Penguin : AbstractCharacter
         _trumpolineTransform.GetComponent<Trumpoline>().TrumpolineJump();
 
         _transform.position = _trumpolineTransform.position;
-        _rigidbody.AddForce(12f * Vector3.up, ForceMode2D.Impulse);
+        _rigidbody.AddForce(7f * Vector3.up, ForceMode2D.Impulse);
 
         _isJumping = true;
     }

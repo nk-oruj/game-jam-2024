@@ -1499,7 +1499,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -3
   m_Sprite: {fileID: 21300000, guid: f2957eec3e3cf4fad939f5767d260dc3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1633,7 +1633,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1142740237}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16.5424, y: -5.01, z: 0}
+  m_LocalPosition: {x: -16.5424, y: -4.37, z: 0}
   m_LocalScale: {x: 45.916, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2637,7 +2637,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 399987894160168493, guid: 67d119bfabc444cf599a6663367fbd3e, type: 3}
       propertyPath: m_Lens.OrthographicSize
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 536045323174615557, guid: 67d119bfabc444cf599a6663367fbd3e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2673,7 +2673,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2630288341207960022, guid: 67d119bfabc444cf599a6663367fbd3e, type: 3}
       propertyPath: orthographic size
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2630288341207960022, guid: 67d119bfabc444cf599a6663367fbd3e, type: 3}
       propertyPath: m_BackGroundColor.a
