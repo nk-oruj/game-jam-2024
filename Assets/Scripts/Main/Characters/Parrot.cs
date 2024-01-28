@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Parrot : AbstractCharacter
@@ -33,9 +34,8 @@ public class Parrot : AbstractCharacter
     }
     
 
-    protected override void OnTriggerStay2D(Collider2D other)
+    protected override void OnCollisionStay2D(Collision2D other)
     {
-        base.OnTriggerStay2D(other);
 
 
 
@@ -43,7 +43,7 @@ public class Parrot : AbstractCharacter
         {
             if (_isAbilityPressed)
             {
-                AttachBlock(other.transform.parent);
+                AttachBlock(other.transform);
             }
         }
     }
