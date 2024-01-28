@@ -1,8 +1,12 @@
+using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Parrot : AbstractCharacter
 {
+    [SerializeField] private GameObject _laser;
+    
     private List<Transform> _blocks = new List<Transform>();
 
     private void AttachBlock(Transform block)
@@ -28,15 +32,10 @@ public class Parrot : AbstractCharacter
         });
         _blocks.Clear();
     }
-    protected override void StopAbility()
-    {
-        base.StopAbility();
-        DetachBlocks();
-    }
+    
 
-    protected override void OnTriggerStay2D(Collider2D other)
+    protected override void OnCollisionStay2D(Collision2D other)
     {
-        base.OnTriggerStay2D(other);
 
 
 
@@ -44,8 +43,27 @@ public class Parrot : AbstractCharacter
         {
             if (_isAbilityPressed)
             {
-                AttachBlock(other.transform.parent);
+                AttachBlock(other.transform);
             }
         }
     }
+
+    
+    protected override void StopAbility()
+    {
+        base.StopAbility();
+        DetachBlocks();
+    }
+    
+    protected override void Hit(Vector2 mousePos)
+    {
+        base.Hit(mousePos);
+        _laser.SetActive(true);
+    }
+    protected override void HitExit()
+    {
+        base.HitExit();
+        _laser.SetActive(false);
+    }
+    
 }

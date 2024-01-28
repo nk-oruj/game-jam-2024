@@ -8,6 +8,7 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private GameObject _menuCanvas;
     [SerializeField] private GameObject _gameCanvas;
     [SerializeField] private GameObject _buttonParrot;
+    [SerializeField] private GameObject _buttonPenguin;
 
     [SerializeField] private float _menuLensSize = 8f;
     [SerializeField] private float _gameLensSize = 5f;
@@ -48,6 +49,11 @@ public class UIManager : Singleton<UIManager>
     public void EnableButtonParrot()
     {
         _buttonParrot.SetActive(true);
+    }
+
+    public void EnableButtonPinguin()
+    {
+        _buttonPenguin.SetActive(true);
     }
 
     public void SwitchCharacter(CharacterType type)

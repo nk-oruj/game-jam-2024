@@ -16,6 +16,12 @@ public class Granny : AbstractCharacter
     private bool _isFalling = false;
 
 
+    protected override void Start()
+    {
+        base.Start();
+        GameManager.Instance.ParrotSwitchEvent += ParrotEscape;
+    }
+
     private void Update()
     {
         if(_state == BehaviorState.Walk)
@@ -65,6 +71,13 @@ public class Granny : AbstractCharacter
         if (collision.gameObject.CompareTag("Banana"))
         {
             Banana();
+        }
+        else if (collision.gameObject.CompareTag("InteractableObject"))
+        {
+            if (collision.gameObject.GetComponent<Fridge>())
+            {
+                collision.gameObject.GetComponent<Fridge>().Interact(type);
+            }
         }
     }
 }

@@ -4,6 +4,7 @@ public class Penguin : AbstractCharacter
 {
     [SerializeField] private PhysicsMaterial2D _slidePhysicMaterial;
     [SerializeField] private PhysicsMaterial2D _defaultPhysicMaterial;
+    [SerializeField] private GameObject _slider;
 
     private Transform _transform;
     private Rigidbody2D _rigidbody;
@@ -18,6 +19,7 @@ public class Penguin : AbstractCharacter
 
         _transform = transform;
         _rigidbody = GetComponent<Rigidbody2D>();
+        gameObject.SetActive(false);
     }
 
     private void FixedUpdate()
