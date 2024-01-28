@@ -130,6 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5f24c65fc13f48f091cfa8d4083579c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _string: {fileID: 1056111720126151369}
   _core: {fileID: 8135806313295069066}
 --- !u!1 &1056111720171714397
 GameObject:
@@ -312,7 +313,7 @@ GameObject:
   - component: {fileID: 8135806313295069066}
   m_Layer: 0
   m_Name: Luster_Object
-  m_TagString: Untagged
+  m_TagString: Luster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

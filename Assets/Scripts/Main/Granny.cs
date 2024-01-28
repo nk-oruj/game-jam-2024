@@ -17,6 +17,9 @@ public class Granny : AbstractCharacter
     private bool _isFallen = false;
     private bool _isFalling = false;
     private bool _isStanding = false;
+    private bool _isLusterHit = false;
+
+    private int _heartPoints = 3;
 
 
     protected override void Start()
@@ -28,7 +31,7 @@ public class Granny : AbstractCharacter
 
     private void Update()
     {
-        if(_state == BehaviorState.Walk)
+        if (_state == BehaviorState.Walk)
         {
             Move(_direction);
         }
@@ -97,7 +100,7 @@ public class Granny : AbstractCharacter
             _state = BehaviorState.Walk;
         }
     }
-    
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Banana"))
@@ -111,5 +114,23 @@ public class Granny : AbstractCharacter
                 collision.gameObject.GetComponent<Fridge>().Interact(type);
             }
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Luster"))
+        {
+            if (_isLusterHit) return;
+
+            other.transform.parent.GetComponent<Trampoline>().MakeCoreTrigger();
+            TakeDamage();
+
+            _isLusterHit = true;
+        }
+    }
+
+    public void TakeDamage()
+    {
+        _heartPoints--;
     }
 }
