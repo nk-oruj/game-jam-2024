@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Granny : AbstractCharacter
 {
+    public Transform TargetPosition;
+
     [SerializeField] private AudioClip _runClip;
 
     private enum BehaviorState
@@ -50,6 +52,11 @@ public class Granny : AbstractCharacter
     {
         _state = BehaviorState.Walk;
         StartCoroutine(AudioDelay(3));
+    }
+
+    public void Idle()
+    {
+        _state = BehaviorState.Idle;
     }
 
     private IEnumerator AudioDelay(float delay)

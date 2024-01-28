@@ -18,6 +18,10 @@ public class Bullet : MonoBehaviour
     {
         _rigidbody.AddForce(_speed * new Vector3(direction.x, direction.y, transform.position.z).normalized, ForceMode2D.Impulse);
         AudioManager.Instance.PlayAudio(_audioClip);
+        if(GetComponent<ScorpionProjectile>()){
+            GetComponent<ScorpionProjectile>()._isShooted = true;
+            _hittedObject = true;
+        }
     }
 
     private void Update()

@@ -1,6 +1,8 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class SubZero : InteractableObject
+public class Scorpion : InteractableObject
 {
     public override void Interact(CharacterType type, GameObject interactObject = null)
     {
@@ -12,6 +14,6 @@ public class SubZero : InteractableObject
 
     private void AllowMikeHitting()
     {
-        FindObjectsOfType<Mike>()[0].GetComponent<Mike>().AllowHitting(true);
+        FindObjectsOfType<Mike>()[0].GetComponent<Mike>().AllowHitting(false);
     }
 }

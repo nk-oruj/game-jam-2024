@@ -8,7 +8,10 @@ public class Mike : AbstractCharacter
     private bool _runToTarget = false;
 
     [SerializeField] private GameObject _projectile;
+    [SerializeField] private GameObject _subZeroProjectile;
     [SerializeField] private GameObject _subZeroInGun;
+    [SerializeField] private GameObject _scorpProjectile;
+    [SerializeField] private GameObject _scorpInGun;
     [SerializeField] private Transform _projectileSpawningPosition;
     [SerializeField] private Transform _runTarget;
 
@@ -53,11 +56,21 @@ public class Mike : AbstractCharacter
     }
 
 
-    public void AllowHitting()
+    public void AllowHitting(bool isSubzero)
     {
         _isHittingAllowed = true;
-        _subZeroInGun.SetActive(true);
+        if (isSubzero)
+        {
+            _subZeroInGun.SetActive(true);
+            _projectile = _subZeroProjectile;
+        }
+        else
+        {
+            _scorpInGun.SetActive(true);
+            _projectile = _scorpProjectile;
+        }
     }
+
     protected override void StopAbility()
     {
         base.StopAbility();
@@ -91,6 +104,7 @@ public class Mike : AbstractCharacter
         projectile.GetComponent<Bullet>().SetFlyingDirection(throwingDirection);
         _isHittingAllowed = false;
         _subZeroInGun.SetActive(false);
+        _scorpInGun.SetActive(false);
 
     }
 
