@@ -20,7 +20,7 @@ public class Granny : AbstractCharacter
     private bool _isFalling = false;
     private bool _isStanding = false;
     private bool _isLusterHit = false;
-
+    private bool _isPenguinHit = false;
     private int _heartPoints = 3;
 
 
@@ -117,6 +117,11 @@ public class Granny : AbstractCharacter
             {
                 collision.gameObject.GetComponent<Fridge>().Interact(type);
             }
+        }
+        else if (collision.gameObject.CompareTag("PenguinHit") && !_isPenguinHit)
+        {
+            _isPenguinHit = true;
+            TakeDamage();
         }
     }
 

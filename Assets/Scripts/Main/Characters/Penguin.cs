@@ -6,6 +6,9 @@ public class Penguin : AbstractCharacter
     [SerializeField] private PhysicsMaterial2D _defaultPhysicMaterial;
     [SerializeField] private GameObject _slider;
 
+    [SerializeField] private GameObject _hittingCollider;
+
+
     private Transform _transform;
     private Rigidbody2D _rigidbody;
 
@@ -30,6 +33,20 @@ public class Penguin : AbstractCharacter
         }
     }
 
+    protected override void Move(Vector2 direction)
+    {
+        base.Move(direction);
+
+        if (direction.x == 0 || _isAbilityPressed)
+        {
+            _view.Idle();
+        }
+        else
+        {
+            _view.Run();
+        }
+    }
+
     protected override void UseAbility()
     {
         Slide();
@@ -38,6 +55,19 @@ public class Penguin : AbstractCharacter
     protected override void StopAbility()
     {
         StopSlide();
+    }
+
+    protected override void Hit(Vector2 mousePosition)
+    {
+        base.Hit(mousePosition);
+        _hittingCollider.SetActive(true);
+        _view.Hit();
+    }
+    protected override void HitExit()
+    {
+        base.HitExit();
+        _hittingCollider.SetActive(false);
+        _view.Idle();
     }
 
     private void Slide()
@@ -96,4 +126,5 @@ public class Penguin : AbstractCharacter
 
         _isJumping = true;
     }
+
 }

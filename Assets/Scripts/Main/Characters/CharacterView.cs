@@ -37,4 +37,9 @@ public class CharacterView : MonoBehaviour
     {
         _animator.SetFloat("Move", 1f);
     }
+
+    public void Hit()
+    {
+        _animator.SetTrigger("Hit");
+    }
 }
