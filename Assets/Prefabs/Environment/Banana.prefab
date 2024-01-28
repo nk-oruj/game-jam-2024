@@ -180,6 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d440b301caa9d77429930aa28b0c1d62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: 7bb4c6c5272674edf8a2c866fce32be1, type: 3}
 --- !u!95 &5331357
 Animator:
   serializedVersion: 5

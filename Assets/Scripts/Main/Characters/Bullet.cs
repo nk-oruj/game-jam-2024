@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    [SerializeField] private AudioClip _audioClip;
     [SerializeField] private float _speed;
 
     private Rigidbody2D _rigidbody;
@@ -16,7 +17,7 @@ public class Bullet : MonoBehaviour
     public void SetFlyingDirection(Vector2 direction)
     {
         _rigidbody.AddForce(_speed * new Vector3(direction.x, direction.y, transform.position.z).normalized, ForceMode2D.Impulse);
-
+        AudioManager.Instance.PlayAudio(_audioClip);
     }
 
     private void Update()

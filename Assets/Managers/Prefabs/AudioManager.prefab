@@ -47,8 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _characterSwitchingAudio:
   - {fileID: 8300000, guid: 88a5892a0f2f449c39c03da559e419e3, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 5470a907ff8f34606b48f6f806db9610, type: 3}
+  - {fileID: 8300000, guid: 5470a907ff8f34606b48f6f806db9610, type: 3}
 --- !u!82 &1932159745497396770
 AudioSource:
   m_ObjectHideFlags: 0
@@ -61,7 +61,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.211
   m_Pitch: 1
   Loop: 0
   Mute: 0

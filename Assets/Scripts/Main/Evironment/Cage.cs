@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Cage : MonoBehaviour
@@ -19,7 +17,7 @@ public class Cage : MonoBehaviour
         if (other.gameObject.tag != "InteractableObject") return;
         if (other.GetComponent<Bullet>() == null) return;
 
-        Destroy(other.gameObject);
+        other.GetComponent<Collider2D>().isTrigger = true;
 
         UIManager.Instance.EnableButtonParrot();
         _transform.Rotate(new Vector3(0, 0, 45f));

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class Fridge : InteractableObject
 {
@@ -8,11 +9,13 @@ public class Fridge : InteractableObject
     [SerializeField] private GameObject _slider;
 
     private SpriteRenderer _renderer;
+    private AudioSource _audioSource;
     private bool _isOpened;
 
     private void Start()
     {
         _renderer = GetComponent<SpriteRenderer>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     public override void Interact(CharacterType type)
@@ -39,9 +42,17 @@ public class Fridge : InteractableObject
     private void Open()
     {
         _isOpened = true;
-        _renderer.sprite = _openedSprite;
-        AudioManager.Instance.PlayAudio(_openAudio);
+        _audioSource.loop = false;
+        _audioSource.clip = _openAudio;
+        _audioSource.Play();
 
+        StartCoroutine(OpenDelay(3f));
+    }
+
+    private IEnumerator OpenDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        _renderer.sprite = _openedSprite;
         _slider.SetActive(true);
         _penguin.SetActive(true);
         UIManager.Instance.EnableButtonPinguin();

@@ -64,6 +64,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 3
+  _runClip: {fileID: 8300000, guid: 2e73f17f0920442919686f2d48f39ccd, type: 3}
 --- !u!50 &227043563465901427
 Rigidbody2D:
   serializedVersion: 4

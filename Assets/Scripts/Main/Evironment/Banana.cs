@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Banana : MonoBehaviour
 {
+    [SerializeField] private AudioClip _audioClip;
     private Animator _animator;
 
     private void Start()
@@ -20,5 +21,6 @@ public class Banana : MonoBehaviour
         Destroy(GetComponent<Rigidbody2D>());
         GetComponent<BoxCollider2D>().isTrigger = true;
         _animator.SetTrigger("Fall");
+        AudioManager.Instance.PlayAudio(_audioClip);
     }
 }

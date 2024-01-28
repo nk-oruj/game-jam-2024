@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33488f3a68264c46aedd763034a1a44f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: 948878614d93344da9849c1595fef9a3, type: 3}
   _speed: 20
 --- !u!50 &2105481516175952212
 Rigidbody2D:

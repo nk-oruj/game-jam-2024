@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Granny : AbstractCharacter
 {
+    [SerializeField] private AudioClip _runClip;
+
     private enum BehaviorState
     {
         Idle,
@@ -41,6 +43,14 @@ public class Granny : AbstractCharacter
     public void ParrotEscape()
     {
         _state = BehaviorState.Walk;
+        StartCoroutine(AudioDelay(3));
+    }
+
+    private IEnumerator AudioDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        AudioManager.Instance.PlayAudio(_runClip);
     }
 
     private void Banana()
