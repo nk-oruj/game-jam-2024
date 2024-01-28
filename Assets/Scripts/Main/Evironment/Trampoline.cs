@@ -4,6 +4,7 @@ using UnityEngine;
 public class Trampoline : MonoBehaviour
 {
     private Rigidbody2D _rigidbody;
+    [SerializeField] private Collider2D _core;
 
     private void Start()
     {
@@ -16,8 +17,9 @@ public class Trampoline : MonoBehaviour
         {
             Destroy(transform.GetChild(0).gameObject);
             _rigidbody.gravityScale = 1;
+            _core.isTrigger = false;
         }
-        
+
     }
 
     private void OnCollisionEnter2D(Collision2D other)
