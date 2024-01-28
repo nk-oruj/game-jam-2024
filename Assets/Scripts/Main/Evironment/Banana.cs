@@ -15,8 +15,13 @@ public class Banana : MonoBehaviour
     {
         if (other.gameObject.tag != "Ground") return;
 
+        BananaFall();
+    }
 
+    private void BananaFall()
+    {
         gameObject.tag = "Banana";
+
         Destroy(GetComponent<Rigidbody2D>());
         GetComponent<BoxCollider2D>().isTrigger = true;
         _animator.SetTrigger("Fall");
