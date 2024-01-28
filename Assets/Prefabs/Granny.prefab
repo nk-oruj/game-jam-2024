@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 227043563465901428}
   - component: {fileID: 227043563465901427}
   - component: {fileID: 227043563465901429}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Granny
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   m_Component:
   - component: {fileID: 227043563890111272}
   - component: {fileID: 227043563890111274}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   m_Component:
   - component: {fileID: 227043565298651259}
   - component: {fileID: 227043565298651260}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -106,4 +106,17 @@ public class Mike : AbstractCharacter
             }
         }
     }
+
+    protected override void OnTriggerStay2D(Collider2D other)
+    {
+        base.OnTriggerStay2D(other);
+
+        if (other.transform.CompareTag("MoveableBlock"))
+        {
+            if (_isAbilityPressed)
+            {
+                AttachBlock(other.transform);
+            }
+        }
+    }
 }

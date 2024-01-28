@@ -10,6 +10,8 @@ TagManager:
   - Banana
   - Ground
   - Laser
+  - Trumpoline
+  - ShelfTrigger
   layers:
   - Default
   - TransparentFX

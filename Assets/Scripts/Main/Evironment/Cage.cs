@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class Cage : MonoBehaviour
 {
-    private Transform _transform;
+    [SerializeField] private Sprite _sprite;
+
     private bool _isBroken;
 
     private void Awake()
     {
-        _transform = transform;
         _isBroken = false;
     }
 
@@ -18,9 +18,10 @@ public class Cage : MonoBehaviour
         if (other.GetComponent<Bullet>() == null) return;
 
         other.GetComponent<Collider2D>().isTrigger = true;
+        GetComponent<SpriteRenderer>().sprite = _sprite;
+        GetComponent<SpriteRenderer>().sortingOrder = -1;
 
         UIManager.Instance.EnableButtonParrot();
-        _transform.Rotate(new Vector3(0, 0, 45f));
         _isBroken = true;
     }
 }
