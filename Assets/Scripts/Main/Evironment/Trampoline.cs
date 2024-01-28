@@ -4,6 +4,8 @@ using UnityEngine;
 public class Trampoline : MonoBehaviour
 {
     private Rigidbody2D _rigidbody;
+    [SerializeField] private GameObject _string;
+    [SerializeField] private Collider2D _core;
 
     private void Start()
     {
@@ -14,10 +16,12 @@ public class Trampoline : MonoBehaviour
     {
         if (other.transform.CompareTag("Laser"))
         {
-            Destroy(transform.GetChild(0).gameObject);
+            if (_string != null) Destroy(_string);
+
             _rigidbody.gravityScale = 1;
+            _core.isTrigger = false;
         }
-        
+
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -26,5 +30,10 @@ public class Trampoline : MonoBehaviour
         {
             Destroy(_rigidbody);
         }
+    }
+
+    public void MakeCoreTrigger()
+    {
+        _core.isTrigger = true;
     }
 }
