@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Parrot : AbstractCharacter
 {
     [SerializeField] private GameObject _laser;
+    [SerializeField] private AudioClip _penguinclip;
     
     private List<Transform> _blocks = new List<Transform>();
 
@@ -17,6 +17,10 @@ public class Parrot : AbstractCharacter
         if (block.GetComponent<Rigidbody2D>())
         {
             block.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+            if (block.GetComponent<AbstractCharacter>())
+            {
+                AudioManager.Instance.PlayAudio(_penguinclip);
+            }
         }
     }
 

@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _characterSwitchingAudio:
   - {fileID: 8300000, guid: 88a5892a0f2f449c39c03da559e419e3, type: 3}
-  - {fileID: 8300000, guid: 5470a907ff8f34606b48f6f806db9610, type: 3}
+  - {fileID: 8300000, guid: 0bc9ed9f5543942e99830fec10a3fd88, type: 3}
   - {fileID: 8300000, guid: 5470a907ff8f34606b48f6f806db9610, type: 3}
 --- !u!82 &1932159745497396770
 AudioSource:

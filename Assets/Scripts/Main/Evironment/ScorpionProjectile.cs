@@ -13,7 +13,7 @@ public class ScorpionProjectile : MonoBehaviour
     {
         if(_isMoving && Vector2.Distance(_targetPosition.position, transform.position) > 0.5f)
         {
-            transform.position += (_targetPosition.position - transform.position).normalized * Time.deltaTime * 3;
+            transform.position += (_targetPosition.position - transform.position).normalized * Time.deltaTime * 5;
         }
     }
 

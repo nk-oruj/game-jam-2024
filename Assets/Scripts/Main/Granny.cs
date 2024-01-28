@@ -28,7 +28,11 @@ public class Granny : AbstractCharacter
     {
         base.Start();
         GameManager.Instance.ParrotSwitchEvent += ParrotEscape;
-        GameManager.Instance.TakeKeyEvent += () => _isStanding = true;
+        GameManager.Instance.TakeKeyEvent += () =>
+        {
+            _isStanding = true;
+            AudioManager.Instance.PlayAudio(_runClip);
+        };
     }
 
     private void Update()
@@ -54,19 +58,12 @@ public class Granny : AbstractCharacter
     public void ParrotEscape()
     {
         _state = BehaviorState.Walk;
-        StartCoroutine(AudioDelay(3));
     }
 
     public void Idle()
     {
         _state = BehaviorState.Idle;
-    }
-
-    private IEnumerator AudioDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-
-        AudioManager.Instance.PlayAudio(_runClip);
+        TakeDamage();
     }
 
     private void Banana()
@@ -139,5 +136,9 @@ public class Granny : AbstractCharacter
     public void TakeDamage()
     {
         _heartPoints--;
+        if(_heartPoints <= 0)
+        {
+            GameManager.Instance.Win();
+        }
     }
 }

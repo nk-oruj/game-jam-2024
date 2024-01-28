@@ -29,6 +29,7 @@ public class Trampoline : MonoBehaviour
         if (other.transform.CompareTag("Ground"))
         {
             Destroy(_rigidbody);
+            GetComponentInChildren<Collider2D>().isTrigger = true;
         }
     }
 
