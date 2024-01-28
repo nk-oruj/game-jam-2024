@@ -291,6 +291,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6675098518880071561}
     m_Modifications:
+    - target: {fileID: -7225162164212661975, guid: 9cccb1c1c456b43c782bc73ffd6ecb7e, type: 3}
+      propertyPath: _gameLensSize
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -7225162164212661975, guid: 9cccb1c1c456b43c782bc73ffd6ecb7e, type: 3}
+      propertyPath: _menuLensSize
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8141387410289181354, guid: 9cccb1c1c456b43c782bc73ffd6ecb7e, type: 3}
       propertyPath: m_RootOrder
       value: 2

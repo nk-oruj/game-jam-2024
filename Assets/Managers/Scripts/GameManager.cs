@@ -3,6 +3,7 @@ using System;
 public class GameManager : Singleton<GameManager>
 {
     public event Action ParrotSwitchEvent;
+    public event Action TakeKeyEvent;
 
     private bool _isParrotSwiched = false;
 
@@ -13,5 +14,10 @@ public class GameManager : Singleton<GameManager>
             ParrotSwitchEvent?.Invoke();
             _isParrotSwiched = true;
         }
+    }
+
+    public void TakeKey()
+    {
+        TakeKeyEvent?.Invoke();
     }
 }

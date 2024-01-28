@@ -8,6 +8,9 @@ public class Key : InteractableObject
         if(type == CharacterType.Penguin)
         {
             transform.parent = interactObject.transform;
+            interactObject.layer = 6;
+
+            GameManager.Instance.TakeKey();
         }
     }
 }

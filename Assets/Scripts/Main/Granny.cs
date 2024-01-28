@@ -16,12 +16,14 @@ public class Granny : AbstractCharacter
     private Vector2 _direction = Vector2.left;
     private bool _isFallen = false;
     private bool _isFalling = false;
+    private bool _isStanding = false;
 
 
     protected override void Start()
     {
         base.Start();
         GameManager.Instance.ParrotSwitchEvent += ParrotEscape;
+        GameManager.Instance.TakeKeyEvent += () => _isStanding = true;
     }
 
     private void Update()
@@ -37,6 +39,10 @@ public class Granny : AbstractCharacter
         if (_isFalling)
         {
             Fall();
+        }
+        if (_isStanding)
+        {
+            Stand();
         }
     }
 
@@ -73,6 +79,22 @@ public class Granny : AbstractCharacter
             transform.rotation = Quaternion.Euler(0, 0, 90);
             _isFallen = true;
             _isFalling = false;
+        }
+    }
+
+    private void Stand()
+    {
+        float step = 3f;
+
+        transform.rotation = transform.rotation * Quaternion.Euler(Vector3.back * step);
+
+        if (Mathf.Abs(transform.rotation.eulerAngles.z) <= 3f)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+            _isFallen = false;
+            _isStanding = false;
+            _direction = Vector2.right;
+            _state = BehaviorState.Walk;
         }
     }
     
