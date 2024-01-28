@@ -56,7 +56,10 @@ public class AbstractCharacter : MonoBehaviour
     {
         
     }
-
+    protected virtual void HitExit()
+    {
+        
+    }
     protected virtual void OnCollisionStay2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("InteractableObject") && _isInteractionPressed)
@@ -82,6 +85,7 @@ public class AbstractCharacter : MonoBehaviour
         _controlManager.AbilityEvent += UseAbility;
         _controlManager.AbilityStopEvent += StopAbility;
         _controlManager.HitEvent += Hit;
+        _controlManager.HitExit += HitExit;
     }
 
     public void UnsubsribeFromControl()
@@ -92,6 +96,7 @@ public class AbstractCharacter : MonoBehaviour
         _controlManager.AbilityEvent -= UseAbility;
         _controlManager.AbilityStopEvent -= StopAbility;
         _controlManager.HitEvent -= Hit;
+        _controlManager.HitExit -= HitExit;
 
     }
 }
